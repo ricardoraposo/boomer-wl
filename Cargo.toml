@@ -1,0 +1,22 @@
+[package]
+name = "boomer-wl"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Zoomer application for wlroots Wayland compositors, a Rust port of tsoding/boomer"
+repository = "https://github.com/ricardoraposo/boomer-wl"
+
+[dependencies]
+rayon = "1.12.0"
+smithay-client-toolkit = "0.21.1"
+wayland-client = "0.31.15"
+wayland-protocols = { version = "0.32.13", features = ["client"] }
+wayland-protocols-wlr = { version = "0.3.12", features = ["client"] }
+
+[[bin]]
+name = "boomer"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
